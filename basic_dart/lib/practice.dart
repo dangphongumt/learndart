@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'dart:math';
+import 'package:intl/intl.dart';
 
 //https://o2.edu.vn/bai-tap-lap-trinh-dart/
 main() {
@@ -110,6 +111,7 @@ main() {
 //bai10 viết chương trình nhập ngày tháng năm. Hãy cho biết tháng đó bao nhiêu ngày
 void bai10() {
   DateTime now = DateTime.now();
+  String formattedDate = DateFormat('yyyy-MM-dd - kk:mm')
 }
 
 //bai9. tim tat ca các so chia het cho 7 nhung khong phai boi so cua 5, nam trong doan 10 -> 100. Các số thu được sẽ in thành chuỗi trên một dòng, cách nhau bằng dấu phẩy.
