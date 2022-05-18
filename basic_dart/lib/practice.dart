@@ -23,6 +23,7 @@ main() {
           print("09.nhap vao so a (1 <= a <= 100)");
           print(
               "10.In ra man hinh boi so cua 7 va NOT boi so cua 5(10 <= a <= 100)");
+          print("11.Tinh so ngay cua thang");
           break;
         }
       case 2:
@@ -111,7 +112,8 @@ main() {
 //bai10 viết chương trình nhập ngày tháng năm. Hãy cho biết tháng đó bao nhiêu ngày
 void bai10() {
   DateTime now = DateTime.now();
-  String formattedDate = DateFormat('yyyy-MM-dd - kk:mm')
+  String formattedDate = DateFormat('yyyy-MM-dd - kk:mm').format(now);
+  print("formattedDate: $formattedDate");
 }
 
 //bai9. tim tat ca các so chia het cho 7 nhung khong phai boi so cua 5, nam trong doan 10 -> 100. Các số thu được sẽ in thành chuỗi trên một dòng, cách nhau bằng dấu phẩy.
