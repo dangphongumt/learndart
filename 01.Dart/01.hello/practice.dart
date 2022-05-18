@@ -18,7 +18,7 @@ main() {
           print("05. In ra man hinh cac so nguyen duong < 100");
           print("06. Tim ra so duong lon nhat");
           print("07. kiem tra 2 so thuc co cung dau");
-          print("08. doc so nguyen <1000");
+          print("08. doc so nguyen <1000 (have bug)");
           print("09.nhap vao so a (1 <= a <= 100)");
           break;
         }
@@ -79,8 +79,7 @@ main() {
       case 9:
         {
           print("nhap vao so a (1 <= a <= 100): ");
-          int a = stdin.readIntSync();
-          bai8(a);
+          bai8();
           break;
         }
       default:
@@ -96,7 +95,8 @@ main() {
 
 //bai8. viet chương trình sinh ra một số ngẫu nhiên N từ 1 -> 100. Đề nghị người dùng đoán và nhập vào 1 số, in ra màn
 // hình thông báo xem đoán đúng hay sai, lớn hay nhỏ hơn số N. Cho nhập thêm 2 lần nữa.
-void bai8(int input) {
+void bai8() {
+  int input = stdin.readIntSync();
   if (input > 100 || input < 1) {
     print("Nhap vao so a: 1<=a<=100. please");
     return;
@@ -104,8 +104,20 @@ void bai8(int input) {
   var rd = Random();
   int randomNumber = rd.nextInt(99) + 1;
   int count = 0;
-  while (checkNumber(randomNumber, input) || count <= 3) {
-    checkNumber(randomNumber, input);
+  bool check = false;
+  while (check == false && count < 3) {
+    //the first input is start before, but have to go into while for print result
+    check = checkNumber(randomNumber, input);
+// print("check ${check}");
+// print("count ${count}");
+
+    if (check == false && count < 2) {
+      print("nhap vao so a (1 <= a <= 100): ");
+      input = stdin.readIntSync();
+    }
+    if (check == false && count == 2) {
+      print("dap an dung la: $randomNumber");
+    }
     count++;
   }
 }
