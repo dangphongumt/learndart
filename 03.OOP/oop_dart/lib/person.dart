@@ -15,9 +15,20 @@ class Person {
     print("parameterized contructor fired");
   }
 
-  Person.parameterizedContructor2(String name, int age) {
-    this.name = name;
-    this.age = age;
+  Person.parameterizedContructorOnlyFullName(String fullName) {
+    this.fullName = fullName;
     print("parameterized contructor fired");
+  }
+
+  void printNameAndFullName() {
+    print("This is: ${this.name}${this.fullName}");
+  }
+
+  void doSomething() {
+    print("This method is calling other method of the current instance");
+    print("------------------------");
+    printNameAndFullName();
+    print("have this------------------------");
+    this.printNameAndFullName();
   }
 }
